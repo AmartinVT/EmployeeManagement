@@ -111,7 +111,6 @@ function postDepartment (){
 }
 
 function postRoles (){
-    const sql = `SELECT * FROM roles`;
     inquirer.prompt([
     {
         name: 'addRoles',
@@ -134,8 +133,6 @@ function postRoles (){
 }
 
 function postEmployee (){
-    const sql = `SELECT * FROM employee`;
-    const roles = db.query(`USE employee_db;SELECT DISTINCT title FROM roles;`);
     inquirer.prompt([
     {
         name: 'addFirst',
@@ -150,12 +147,47 @@ function postEmployee (){
     {
         name: 'addRole',
         type: 'list',
-        message: 'Please select the role of the new employee using ARROW KEYS + ENTER',
-        choices: [roles],
-    }     
+        message: 'Please select the role of the new employee',
+        choices: [
+            "Industrial Engineer",
+            "Mechanical Engineer",
+            "Aerospace Engineer",
+            "Associate Programmer", 
+            "Computer Vision Developer",
+            "Sr. IE & Inno Manager",
+            "Operations Manager",
+            "VP QA & Mfg. Engineering",          
+        ]
+    } 
     ]).then(function(selection){
+        let addRoleID () =>
+        if (selection.addRole="Industrial Engineer"){
+            let addRoleID=1
+        }
+        else if (selection.addRole="Mechanical Engineer"){
+            let addRoleID=2;
+        }
+        else if (selection.addRole="Aerospace Engineer"){
+            let addRoleID=3;
+        }        
+        else if (selection.addRole="Associate Programmer"){
+            let addRoleID=4;
+        }
+        else if (selection.addRole="Computer Vision Developer"){
+            let addRoleID=5;
+        }        
+        else if (selection.addRole="Sr. IE & Inno Manager"){
+            let addRoleID=6;
+        }        
+        else if (selection.addRole="Operations Manager"){
+            let addRoleID=7;
+        }
+        else {
+           let addRoleID=8;
+        };
+
         db.query(
-            `INSERT INTO employee (first_name, last_name, title) VALUES("${selection.addFirst}","${selection.addLast}","${selection.addRole}");`
+            `INSERT INTO employee (first_name, last_name, role_id) VALUES("${selection.addFirst}","${selection.addLast}",${addRoleID});`
         )
         console.log("Successfully added new employee record.");
         getEmployee();
