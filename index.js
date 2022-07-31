@@ -95,8 +95,7 @@ function postDepartment (){
         message: 'Please enter the name of the new department',
     }).then(function(selection){
         db.query(
-            `INSERT INTO department 
-            VALUES (COUNT(*)+1), ${selection.addDept}`
+            `INSERT INTO department (names) VALUES("${selection.addDept}");`
         )
         console.log("Successfully added new department record.");
         userInput();
