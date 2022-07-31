@@ -1,11 +1,11 @@
-INSERT INTO department(name)
+INSERT INTO department(names)
 VALUES 
     ("Engineering"), --1--
     ("Software Development"), --2--
     ("Management"), --3--
     ("Senior Leadership"); --4--
 
-INSERT INTO role(title, salary, department_id)
+INSERT INTO roles(title, salary, department_id)
 VALUES 
     ("Industrial Engineer", 75000, 1), --1--
     ("Mechanical Engineer", 75000, 1), --2--
@@ -15,7 +15,7 @@ VALUES
     ("Sr. IE & Inno Manager", 120000, 3), --6--
     ("Operations Manager", 100000, 3), --7--
     ("VP QA & Mfg. Engineering", 185000, 4), --8--
-    ("Director of Assembly Ops", 165000, 4), --9--
+    ("Director of Assembly Ops", 165000, 4); --9--
 
 INSERT INTO employee(first_name, last_name, role_id, manager_id)
 VALUES
@@ -27,6 +27,6 @@ VALUES
     (Aster, Martinez, 6, 8), --6--
     (Patrice, DuPont, 7, 9), --7--
     (Alonoso, Rubarb, 8, null), --8--
-    (Philly, Huntman, 9), null, --9--
+    (Philly, Huntman, 9), null; --9--
 
         
