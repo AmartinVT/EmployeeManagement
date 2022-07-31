@@ -33,22 +33,22 @@ function userInput(){
     }).then(function(selection){
         if (selection.userSelection === "View all departments") {
             getDept();
-            userInput();
         } 
         
         else if (selection.userSelection === "View all roles") {
             getRoles();
-            userInput();
         }
 
         else if (selection.userSelection === "View all employees") {
             getEmployee();
-            userInput();
+        }
+
+        else if (selection.userSelection === "Add a department") {
+            postDepartment();
         }
 
         else {
-            postDepartment();
-            userInput();
+            postRoles();
         }
     
     
@@ -66,6 +66,7 @@ function getDept (){
     db.query(sql, (err, result) =>{
         if (err) throw err;
         console.table(result);
+        userInput();
     });
 }
 
@@ -74,6 +75,7 @@ function getRoles (){
     db.query(sql, (err, result) =>{
         if (err) throw err;
         console.table(result);
+        userInput();
     });
 }
 
@@ -82,6 +84,7 @@ function getEmployee (){
     db.query(sql, (err, result) =>{
         if (err) throw err;
         console.table(result);
+        userInput();
     });
 }
 
@@ -98,6 +101,30 @@ function postDepartment (){
             `INSERT INTO department (names) VALUES("${selection.addDept}");`
         )
         console.log("Successfully added new department record.");
+        getDept();
+        userInput();
+    })
+}
+
+function postRoles (){
+    const sql = `SELECT * FROM roles`;
+    inquirer.prompt([
+    {
+        name: 'addRoles',
+        type: 'input',
+        message: 'Please enter the name of the new role',
+    },
+    {
+        name: 'addSalary',
+        type: 'input',
+        message: 'Please enter the salary of the new role using ONLY numbers (no special characters or spaces!!!!)',
+    }    
+    ]).then(function(selection){
+        db.query(
+            `INSERT INTO roles (title, salary) VALUES("${selection.addRoles}",${selection.addSalary});`
+        )
+        console.log("Successfully added new role record.");
+        getRoles();
         userInput();
     })
 }
