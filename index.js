@@ -18,7 +18,7 @@ const db = createConnection(
 // User prompts
 function userInput(){
     inquirer.prompt({
-        name: 'userOptions',
+        name: 'userSelection',
         type: 'list',
         message: 'Welcome! Please select an option from the below list using ARROW KEYS + ENTER',
         choices: [
@@ -30,20 +30,78 @@ function userInput(){
             "Add an employee",
             "Update an employee role"
         ],
-    }).then(userInput())
-}
+    }).then(function(selection){
+        if (selection.userSelection === "View all departments") {
+            getDept();
+            userInput();
+        } 
+        
+        else if (selection.userSelection === "View all roles") {
+            getRoles();
+            userInput();
+        }
+
+        else if (selection.userSelection === "View all employees") {
+            getEmployee();
+            userInput();
+        }
+
+        else {
+            postDepartment();
+            userInput();
+        }
+    
+    
+    
+    } // End .then statement function
+    ) // End .then statement
+} // End userInput()
 
 // Server interactions
 
 
-// GET
+// GET statements
 function getDept (){
     const sql = `SELECT * FROM department`;
     db.query(sql, (err, result) =>{
         if (err) throw err;
         console.table(result);
-        userInput();
+    });
+}
+
+function getRoles (){
+    const sql = `SELECT * FROM roles`;
+    db.query(sql, (err, result) =>{
+        if (err) throw err;
+        console.table(result);
+    });
+}
+
+function getEmployee (){
+    const sql = `SELECT * FROM employee`;
+    db.query(sql, (err, result) =>{
+        if (err) throw err;
+        console.table(result);
     });
 }
 
 // POST
+
+function postDepartment (){
+    const sql = `SELECT * FROM department`;
+    inquirer.prompt({
+        name: 'addDept',
+        type: 'input',
+        message: 'Please enter the name of the new department',
+    }).then(function(selection){
+        db.query(
+            `INSERT INTO department 
+            VALUES (COUNT(*)+1), ${selection.addDept}`
+        )
+        console.log("Successfully added new department record.");
+        userInput();
+    })
+}
+
+userInput();
+
