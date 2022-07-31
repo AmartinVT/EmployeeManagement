@@ -30,12 +30,20 @@ function userInput(){
             "Add an employee",
             "Update an employee role"
         ],
-    }).then()
+    }).then(userInput())
 }
 
 // Server interactions
 
 
 // GET
+function getDept (){
+    const sql = `SELECT * FROM department`;
+    db.query(sql, (err, result) =>{
+        if (err) throw err;
+        console.table(result);
+        userInput();
+    });
+}
 
 // POST
