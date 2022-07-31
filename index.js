@@ -9,7 +9,7 @@ const db = createConnection(
     host: 'localhost',
     user: 'root',
     password: 'porkchop',
-    database: 'MartinMacAir',
+    database: 'employee_db',
     multipleStatements: true
     },
     console.log("Connection successful!!!")
