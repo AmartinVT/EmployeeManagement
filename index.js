@@ -47,8 +47,12 @@ function userInput(){
             postDepartment();
         }
 
-        else {
+        else if (selection.userSelection === "Add a role") {
             postRoles();
+        }
+
+        else {
+            postEmployee();
         }
     
     
@@ -125,6 +129,36 @@ function postRoles (){
         )
         console.log("Successfully added new role record.");
         getRoles();
+        userInput();
+    })
+}
+
+function postEmployee (){
+    const sql = `SELECT * FROM employee`;
+    const roles = db.query(`USE employee_db;SELECT DISTINCT title FROM roles;`);
+    inquirer.prompt([
+    {
+        name: 'addFirst',
+        type: 'input',
+        message: 'Please enter the first name of the new employee',
+    },
+    {
+        name: 'addLast',
+        type: 'input',
+        message: 'Please enter the last name of the new employee',
+    },
+    {
+        name: 'addRole',
+        type: 'list',
+        message: 'Please select the role of the new employee using ARROW KEYS + ENTER',
+        choices: [roles],
+    }     
+    ]).then(function(selection){
+        db.query(
+            `INSERT INTO employee (first_name, last_name, title) VALUES("${selection.addFirst}","${selection.addLast}","${selection.addRole}");`
+        )
+        console.log("Successfully added new employee record.");
+        getEmployee();
         userInput();
     })
 }
