@@ -145,6 +145,17 @@ function postEmployee (){
         message: 'Please enter the last name of the new employee',
     },
     {
+        name: 'addMgr',
+        type: 'list',
+        message: 'Please select the manager of the new employee',
+        choices: [
+            "Aster Martinez",
+            "Patrice DuPont",
+            "Alonoso Rubarb",
+            "Philly Huntman",
+        ]
+    },
+    {
         name: 'addRole',
         type: 'list',
         message: 'Please select the role of the new employee',
@@ -158,10 +169,7 @@ function postEmployee (){
             "Operations Manager",
             "VP QA & Mfg. Engineering",          
         ]
-    }
-    
-    
-    
+    }    
     ]).then(function(selection){
 
         function roleID(){
@@ -197,11 +205,30 @@ function postEmployee (){
                return addRoleID;
             }};
 
-            let addRoleID = roleID()
-
+        function MgrID(){
+            if (selection.addMgr="Aster Martinez"){
+                let addMgrID=6
+                return addMgrID;
+            }
+            else if (selection.addRole="Patrice DuPont"){
+                let addMgrID=7;
+                return addMgrID;
+            }
+            else if (selection.addRole="Alonoso Rubarb"){
+                let addMgrID=8;
+                return addMgrID;
+            }
+            else {
+                let addMgrID=9;
+                return addMgrID;
+            }};                    
+        
+        let addRoleID = roleID();
+        
+        let addMgrID = MgrID();
 
         db.query(
-            `INSERT INTO employee (first_name, last_name, role_id) VALUES("${selection.addFirst}","${selection.addLast}",${addRoleID});`
+            `INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES("${selection.addFirst}","${selection.addLast}",${addRoleID},${addMgrID});`
         )
         console.log("Successfully added new employee record.");
         getEmployee();
