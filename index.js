@@ -236,5 +236,24 @@ function postEmployee (){
     })
 }
 
+function updateRole(){
+    inquirer.prompt[{
+        name: 'empNameUpdate',
+        type: 'list',
+        message: 'Please select the name of the employee who you want to update',
+        choices: [
+            "Jack Wellington",
+            "Louie Morris",
+            "Rocky Scientist",
+            "Billie Gates",
+            "Augie Meta",
+            "Aster Martinez",
+            "Patrice DuPont",
+            "Alonoso Rubarb",
+            "Philly Huntman",
+        ]
+    }] 
+}
+
 userInput();
 
