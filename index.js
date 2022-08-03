@@ -51,8 +51,12 @@ function userInput(){
             postRoles();
         }
 
-        else {
+        else if (selection.userSelection === "Add an employee") {
             postEmployee();
+        }       
+
+        else {
+            updateRole();
         }
     
     
@@ -237,7 +241,8 @@ function postEmployee (){
 }
 
 function updateRole(){
-    inquirer.prompt[{
+    inquirer.prompt([
+        {
         name: 'empNameUpdate',
         type: 'list',
         message: 'Please select the name of the employee who you want to update',
@@ -268,7 +273,8 @@ function updateRole(){
             "Operations Manager",
             "VP QA & Mfg. Engineering",       
         ]
-        }].then(function(selection){
+        }   
+        ]).then(function(selection){
             
             function getEmpID(){
                 if (selection.empNameUpdate="Jack Wellington"){
@@ -346,7 +352,7 @@ function updateRole(){
             let RoleID = roleID();
 
             db.query(
-                `UPDATE employee SET role_id = ${RoleID} WHERE employee(employee_id)=${EmpID};`
+                `UPDATE employee SET role_id = ${RoleID} WHERE employee(employee_id) = ${EmpID};`
             )
             console.log("Successfully updated employee role.");
             getEmployee();
