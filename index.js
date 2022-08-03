@@ -252,7 +252,106 @@ function updateRole(){
             "Alonoso Rubarb",
             "Philly Huntman",
         ]
-    }] 
+        },
+        
+        {
+        name: 'empRoleUpdate',
+        type: 'list',
+        message: 'Please select the new role for this employee',
+        choices: [
+            "Industrial Engineer",
+            "Mechanical Engineer",
+            "Aerospace Engineer",
+            "Associate Programmer", 
+            "Computer Vision Developer",
+            "Sr. IE & Inno Manager",
+            "Operations Manager",
+            "VP QA & Mfg. Engineering",       
+        ]
+        }].then(function(selection){
+            
+            function getEmpID(){
+                if (selection.empNameUpdate="Jack Wellington"){
+                    let getEmpID=1
+                    return getEmpID;
+                }
+                else if (selection.empNameUpdate="Louie Morris"){
+                    let getEmpID=2;
+                    return getEmpID;
+                }
+                else if (selection.empNameUpdate="Rocky Scientist"){
+                    let getEmpID=3;
+                    return getEmpID;
+                }        
+                else if (selection.empNameUpdate="Billie Gates"){
+                    let getEmpID=4;
+                    return getEmpID;
+                }
+                else if (selection.empNameUpdate="Augie Meta"){
+                    let getEmpID=5;
+                    return getEmpID;
+                }        
+                else if (selection.empNameUpdate="Aster Martinez"){
+                    let getEmpID=6;
+                    return getEmpID;
+                }        
+                else if (selection.empNameUpdate="Patrice DuPont"){
+                    let getEmpID=7;
+                    return getEmpID;
+                }
+                else if (selection.empNameUpdate="Alonoso Rubarb"){
+                    let getEmpID=8;
+                    return getEmpID;
+                }                
+                else {
+                   let getEmpID=9;
+                   return getEmpID;
+                };                
+            };
+
+            function roleID(){
+                if (selection.addRole="Industrial Engineer"){
+                    let addRoleID=1
+                    return addRoleID;
+                }
+                else if (selection.addRole="Mechanical Engineer"){
+                    let addRoleID=2;
+                    return addRoleID;
+                }
+                else if (selection.addRole="Aerospace Engineer"){
+                    let addRoleID=3;
+                    return addRoleID;
+                }        
+                else if (selection.addRole="Associate Programmer"){
+                    let addRoleID=4;
+                    return addRoleID;
+                }
+                else if (selection.addRole="Computer Vision Developer"){
+                    let addRoleID=5;
+                }        
+                else if (selection.addRole="Sr. IE & Inno Manager"){
+                    let addRoleID=6;
+                    return addRoleID;
+                }        
+                else if (selection.addRole="Operations Manager"){
+                    let addRoleID=7;
+                    return addRoleID;
+                }
+                else {
+                   let addRoleID=8;
+                   return addRoleID;
+                }};
+
+            let EmpID = getEmpID();
+            let RoleID = roleID();
+
+            db.query(
+                `UPDATE employee SET role_id = ${RoleID} WHERE employee(employee_id)=${EmpID};`
+            )
+            console.log("Successfully updated employee role.");
+            getEmployee();
+            userInput(); 
+        })
 }
 
 userInput();
