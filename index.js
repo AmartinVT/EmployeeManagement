@@ -158,33 +158,47 @@ function postEmployee (){
             "Operations Manager",
             "VP QA & Mfg. Engineering",          
         ]
-    } 
+    }
+    
+    
+    
     ]).then(function(selection){
-        let addRoleID () =>
-        if (selection.addRole="Industrial Engineer"){
-            let addRoleID=1
-        }
-        else if (selection.addRole="Mechanical Engineer"){
-            let addRoleID=2;
-        }
-        else if (selection.addRole="Aerospace Engineer"){
-            let addRoleID=3;
-        }        
-        else if (selection.addRole="Associate Programmer"){
-            let addRoleID=4;
-        }
-        else if (selection.addRole="Computer Vision Developer"){
-            let addRoleID=5;
-        }        
-        else if (selection.addRole="Sr. IE & Inno Manager"){
-            let addRoleID=6;
-        }        
-        else if (selection.addRole="Operations Manager"){
-            let addRoleID=7;
-        }
-        else {
-           let addRoleID=8;
-        };
+
+        function roleID(){
+            if (selection.addRole="Industrial Engineer"){
+                let addRoleID=1
+                return addRoleID;
+            }
+            else if (selection.addRole="Mechanical Engineer"){
+                let addRoleID=2;
+                return addRoleID;
+            }
+            else if (selection.addRole="Aerospace Engineer"){
+                let addRoleID=3;
+                return addRoleID;
+            }        
+            else if (selection.addRole="Associate Programmer"){
+                let addRoleID=4;
+                return addRoleID;
+            }
+            else if (selection.addRole="Computer Vision Developer"){
+                let addRoleID=5;
+            }        
+            else if (selection.addRole="Sr. IE & Inno Manager"){
+                let addRoleID=6;
+                return addRoleID;
+            }        
+            else if (selection.addRole="Operations Manager"){
+                let addRoleID=7;
+                return addRoleID;
+            }
+            else {
+               let addRoleID=8;
+               return addRoleID;
+            }};
+
+            let addRoleID = roleID()
+
 
         db.query(
             `INSERT INTO employee (first_name, last_name, role_id) VALUES("${selection.addFirst}","${selection.addLast}",${addRoleID});`
