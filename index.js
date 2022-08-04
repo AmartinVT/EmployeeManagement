@@ -1,7 +1,6 @@
 // Dependencies
 import inquirer from 'inquirer';
 import { createConnection } from 'mysql2';
-import tables from 'console.table';
 
 // Server connection
 const db = createConnection(
@@ -29,6 +28,7 @@ function userInput(){
             "Add a role",
             "Add an employee",
             "Update an employee role"
+
         ],
     }).then(function(selection){
         if (selection.userSelection === "View all departments") {
@@ -178,7 +178,7 @@ function postEmployee (){
 
         function roleID(){
             if (selection.addRole="Industrial Engineer"){
-                let addRoleID=1
+                let addRoleID=1;
                 return addRoleID;
             }
             else if (selection.addRole="Mechanical Engineer"){
@@ -195,6 +195,7 @@ function postEmployee (){
             }
             else if (selection.addRole="Computer Vision Developer"){
                 let addRoleID=5;
+                return addRoleID;
             }        
             else if (selection.addRole="Sr. IE & Inno Manager"){
                 let addRoleID=6;
@@ -272,74 +273,74 @@ function updateRole(){
             "Sr. IE & Inno Manager",
             "Operations Manager",
             "VP QA & Mfg. Engineering",       
-        ]
-        }   
+        ]}   
         ]).then(function(selection){
             
             function getEmpID(){
                 if (selection.empNameUpdate="Jack Wellington"){
-                    let getEmpID=1
-                    return getEmpID;
+                    let updateEmpID=1;
+                    return updateEmpID;
                 }
                 else if (selection.empNameUpdate="Louie Morris"){
-                    let getEmpID=2;
-                    return getEmpID;
+                    let updateEmpID=2;
+                    return updateEmpID;
                 }
                 else if (selection.empNameUpdate="Rocky Scientist"){
-                    let getEmpID=3;
-                    return getEmpID;
+                    let updateEmpID=3;
+                    return updateEmpID;
                 }        
                 else if (selection.empNameUpdate="Billie Gates"){
-                    let getEmpID=4;
-                    return getEmpID;
+                    let updateEmpID=4;
+                    return updateEmpID;
                 }
                 else if (selection.empNameUpdate="Augie Meta"){
-                    let getEmpID=5;
-                    return getEmpID;
+                    let updateEmpID=5;
+                    return updateEmpID;
                 }        
                 else if (selection.empNameUpdate="Aster Martinez"){
-                    let getEmpID=6;
-                    return getEmpID;
+                    let updateEmpID=6;
+                    return updateEmpID;
                 }        
                 else if (selection.empNameUpdate="Patrice DuPont"){
-                    let getEmpID=7;
-                    return getEmpID;
+                    let updateEmpID=7;
+                    return updateEmpID;
                 }
                 else if (selection.empNameUpdate="Alonoso Rubarb"){
-                    let getEmpID=8;
-                    return getEmpID;
+                    let updateEmpID=8;
+                    return updateEmpID;
                 }                
                 else {
-                   let getEmpID=9;
-                   return getEmpID;
-                };                
+                   let updateEmpID=9;
+                   return updateEmpID;
+                }               
             };
 
             function roleID(){
-                if (selection.addRole="Industrial Engineer"){
-                    let addRoleID=1
+                if (selection.empRoleUpdate="Industrial Engineer"){
+                    let addRoleID=1;
                     return addRoleID;
                 }
-                else if (selection.addRole="Mechanical Engineer"){
+                else if (selection.empRoleUpdate="Mechanical Engineer"){
                     let addRoleID=2;
                     return addRoleID;
                 }
-                else if (selection.addRole="Aerospace Engineer"){
+                else if (selection.empRoleUpdate="Aerospace Engineer"){
                     let addRoleID=3;
                     return addRoleID;
                 }        
-                else if (selection.addRole="Associate Programmer"){
+                else if (selection.empRoleUpdate="Associate Programmer"){
                     let addRoleID=4;
                     return addRoleID;
                 }
-                else if (selection.addRole="Computer Vision Developer"){
+                else if (selection.empRoleUpdate="Computer Vision Developer"){
                     let addRoleID=5;
+                    return addRoleID;
                 }        
-                else if (selection.addRole="Sr. IE & Inno Manager"){
+                else if (selection.empRoleUpdate="Sr. IE & Inno Manager"){
                     let addRoleID=6;
                     return addRoleID;
                 }        
-                else if (selection.addRole="Operations Manager"){
+                else if (selection.empRoleUpdate="Operations Manager"){
                     let addRoleID=7;
                     return addRoleID;
                 }
@@ -347,18 +348,27 @@ function updateRole(){
                    let addRoleID=8;
                    return addRoleID;
                 }};
-
-            let EmpID = getEmpID();
-            let RoleID = roleID();
+            
+            let updateEmpID = getEmpID();
+            
+            let addRoleID = roleID();
 
             db.query(
-                `UPDATE employee SET role_id = ${RoleID} WHERE employee(employee_id) = ${EmpID};`
+                `UPDATE employee SET ? WHERE ?`,
+                [
+                    {
+                        role_id: addRoleID
+                    },
+                    {
+                        id: updateEmpID
+                    }
+                ],
             )
             console.log("Successfully updated employee role.");
             getEmployee();
-            userInput(); 
-        })
-}
+            userInput();
+                 
+        })    
+};
 
 userInput();
-
