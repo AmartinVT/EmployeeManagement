@@ -12,7 +12,7 @@ CREATE TABLE department (
   -- Creates a numeric column called "id" which will automatically increment its default value as we create new rows --
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   -- Makes a string column called "name" which cannot contain null --
-  names VARCHAR(100)
+  names VARCHAR(100) NOT NULL
 );
 
 -- Creates the table "roles" within employee_db --

@@ -13,8 +13,16 @@ inquirer for user input
 
 mysql2 for server interaction
 
-constole.table for formatting server output into a table format
-
 ## SCREENSHOTS
+![Input Launch](Assets/SS1.png)
+
+![View All Employees](Assets/SS2.png)
+
+![View All Roles](Assets/SS3.png)
+
+![View All Departments](Assets/SS3.png)
+
+![SQL Server](Assets/SS5.png)
 
 ## VIDEO WALKTHROUGH
+![GIF of Using App](Assets/Martin SQL Demo.gif)

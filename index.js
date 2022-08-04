@@ -203,8 +203,12 @@ function postEmployee (){
                 let addRoleID=7;
                 return addRoleID;
             }
+            else if (selection.addRole === "Director of Operations"){
+                let addRoleID=8;
+                return addRoleID;
+            }           
             else {
-               let addRoleID=8;
+               let addRoleID=9;
                return addRoleID;
             }};
 
@@ -269,7 +273,8 @@ function updateRole(){
             "Computer Vision Developer",
             "Sr. IE & Inno Manager",
             "Operations Manager",
-            "VP QA & Mfg. Engineering",       
+            "VP QA & Mfg. Engineering",
+            "Director of Operations",       
         ]}   
         ]).then(function(selection){
             
@@ -341,8 +346,12 @@ function updateRole(){
                     let addRoleID=7;
                     return addRoleID;
                 }
+                else if (selection.empRoleUpdate === "VP QA & Mfg. Engineering"){
+                    let addRoleID=8;
+                    return addRoleID;
+                }               
                 else {
-                   let addRoleID=8;
+                   let addRoleID=9;
                    return addRoleID;
                 }};
             
