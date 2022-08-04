@@ -177,31 +177,31 @@ function postEmployee (){
     ]).then(function(selection){
 
         function roleID(){
-            if (selection.addRole="Industrial Engineer"){
+            if (selection.addRole === "Industrial Engineer"){
                 let addRoleID=1;
                 return addRoleID;
             }
-            else if (selection.addRole="Mechanical Engineer"){
+            else if (selection.addRole === "Mechanical Engineer"){
                 let addRoleID=2;
                 return addRoleID;
             }
-            else if (selection.addRole="Aerospace Engineer"){
+            else if (selection.addRole === "Aerospace Engineer"){
                 let addRoleID=3;
                 return addRoleID;
             }        
-            else if (selection.addRole="Associate Programmer"){
+            else if (selection.addRole === "Associate Programmer"){
                 let addRoleID=4;
                 return addRoleID;
             }
-            else if (selection.addRole="Computer Vision Developer"){
+            else if (selection.addRole === "Computer Vision Developer"){
                 let addRoleID=5;
                 return addRoleID;
             }        
-            else if (selection.addRole="Sr. IE & Inno Manager"){
+            else if (selection.addRole === "Sr. IE & Inno Manager"){
                 let addRoleID=6;
                 return addRoleID;
             }        
-            else if (selection.addRole="Operations Manager"){
+            else if (selection.addRole === "Operations Manager"){
                 let addRoleID=7;
                 return addRoleID;
             }
@@ -277,35 +277,35 @@ function updateRole(){
         ]).then(function(selection){
             
             function getEmpID(){
-                if (selection.empNameUpdate="Jack Wellington"){
+                if (selection.empNameUpdate === "Jack Wellington"){
                     let updateEmpID=1;
                     return updateEmpID;
                 }
-                else if (selection.empNameUpdate="Louie Morris"){
+                else if (selection.empNameUpdate === "Louie Morris"){
                     let updateEmpID=2;
                     return updateEmpID;
                 }
-                else if (selection.empNameUpdate="Rocky Scientist"){
+                else if (selection.empNameUpdate === "Rocky Scientist"){
                     let updateEmpID=3;
                     return updateEmpID;
                 }        
-                else if (selection.empNameUpdate="Billie Gates"){
+                else if (selection.empNameUpdate === "Billie Gates"){
                     let updateEmpID=4;
                     return updateEmpID;
                 }
-                else if (selection.empNameUpdate="Augie Meta"){
+                else if (selection.empNameUpdate === "Augie Meta"){
                     let updateEmpID=5;
                     return updateEmpID;
                 }        
-                else if (selection.empNameUpdate="Aster Martinez"){
+                else if (selection.empNameUpdate === "Aster Martinez"){
                     let updateEmpID=6;
                     return updateEmpID;
                 }        
-                else if (selection.empNameUpdate="Patrice DuPont"){
+                else if (selection.empNameUpdate === "Patrice DuPont"){
                     let updateEmpID=7;
                     return updateEmpID;
                 }
-                else if (selection.empNameUpdate="Alonoso Rubarb"){
+                else if (selection.empNameUpdate === "Alonoso Rubarb"){
                     let updateEmpID=8;
                     return updateEmpID;
                 }                
@@ -316,31 +316,31 @@ function updateRole(){
             };
 
             function roleID(){
-                if (selection.empRoleUpdate="Industrial Engineer"){
+                if (selection.empRoleUpdate === "Industrial Engineer"){
                     let addRoleID=1;
                     return addRoleID;
                 }
-                else if (selection.empRoleUpdate="Mechanical Engineer"){
+                else if (selection.empRoleUpdate === "Mechanical Engineer"){
                     let addRoleID=2;
                     return addRoleID;
                 }
-                else if (selection.empRoleUpdate="Aerospace Engineer"){
+                else if (selection.empRoleUpdate === "Aerospace Engineer"){
                     let addRoleID=3;
                     return addRoleID;
                 }        
-                else if (selection.empRoleUpdate="Associate Programmer"){
+                else if (selection.empRoleUpdate === "Associate Programmer"){
                     let addRoleID=4;
                     return addRoleID;
                 }
-                else if (selection.empRoleUpdate="Computer Vision Developer"){
+                else if (selection.empRoleUpdate === "Computer Vision Developer"){
                     let addRoleID=5;
                     return addRoleID;
                 }        
-                else if (selection.empRoleUpdate="Sr. IE & Inno Manager"){
+                else if (selection.empRoleUpdate === "Sr. IE & Inno Manager"){
                     let addRoleID=6;
                     return addRoleID;
                 }        
-                else if (selection.empRoleUpdate="Operations Manager"){
+                else if (selection.empRoleUpdate === "Operations Manager"){
                     let addRoleID=7;
                     return addRoleID;
                 }
@@ -364,6 +364,7 @@ function updateRole(){
                     }
                 ],
             )
+            console.log("${empNameUpdate}")
             console.log("Successfully updated employee role.");
             getEmployee();
             userInput();
