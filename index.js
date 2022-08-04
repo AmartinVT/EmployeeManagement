@@ -109,7 +109,6 @@ function postDepartment (){
             `INSERT INTO department (names) VALUES("${selection.addDept}");`
         )
         console.log("Successfully added new department record.");
-        getDept();
         userInput();
     })
 }
@@ -131,7 +130,6 @@ function postRoles (){
             `INSERT INTO roles (title, salary) VALUES("${selection.addRoles}",${selection.addSalary});`
         )
         console.log("Successfully added new role record.");
-        getRoles();
         userInput();
     })
 }
@@ -236,7 +234,6 @@ function postEmployee (){
             `INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES("${selection.addFirst}","${selection.addLast}",${addRoleID},${addMgrID});`
         )
         console.log("Successfully added new employee record.");
-        getEmployee();
         userInput();
     })
 }
@@ -354,19 +351,15 @@ function updateRole(){
             let addRoleID = roleID();
 
             db.query(
-                `UPDATE employee SET ? WHERE ?`,
+                `UPDATE employee SET ? WHERE id=${updateEmpID}`,
                 [
                     {
                         role_id: addRoleID
                     },
-                    {
-                        id: updateEmpID
-                    }
                 ],
             )
             console.log("${empNameUpdate}")
             console.log("Successfully updated employee role.");
-            getEmployee();
             userInput();
                  
         })    

@@ -16,16 +16,16 @@ VALUES
     ("Operations Manager", 100000, 3), 
     ("VP QA & Mfg. Engineering", 185000, 4);
 
-INSERT INTO employee(first_name, last_name, role_id, manager_id)
+INSERT INTO employee(first_name, last_name, manager_id)
 VALUES
-    ("Jack", "Wellington", 1, 6),
-    ("Louie", "Morris", 2, 6),
-    ("Rocky", "Scientist", 3, 6),
-    ("Billie", "Gates", 4, 6),
-    ("Augie", "Meta", 5, 6),
-    ("Aster", "Martinez", 6, 8),
-    ("Patrice", "DuPont", 7, 9),
-    ("Alonoso", "Rubarb", 8, null),
-    ("Philly", "Huntman", 9, null);
+    ("Jack", "Wellington", 6),
+    ("Louie", "Morris", 6),
+    ("Rocky", "Scientist", 6),
+    ("Billie", "Gates", 6),
+    ("Augie", "Meta", 6),
+    ("Aster", "Martinez", 8),
+    ("Patrice", "DuPont", 9),
+    ("Alonoso", "Rubarb", null),
+    ("Philly", "Huntman", null);
 
         
