@@ -25,4 +25,4 @@ mysql2 for server interaction
 ![SQL Server](Assets/SS5.png)
 
 ## VIDEO WALKTHROUGH
-![GIF of Using App](Assets/Martin SQL Demo.gif)
+![GIF of Using App](Assets/Martin_SQL_Demo.gif)
